@@ -6,9 +6,17 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController? textEditingController;
   final String? hintText;
   final String? errorText;
+  Widget? suffixIcon;
+  bool obscureText;
   final Function(String)? onChanged;
-  const CustomTextField(
-      {super.key, this.textEditingController, this.hintText, this.errorText, this.onChanged});
+  CustomTextField(
+      {super.key,
+      this.textEditingController,
+      this.hintText,
+      this.errorText,
+      this.onChanged,
+      this.obscureText = false,
+      this.suffixIcon});
 
   @override
   Widget build(BuildContext context) {
@@ -17,6 +25,7 @@ class CustomTextField extends StatelessWidget {
       child: TextField(
         controller: textEditingController,
         onChanged: onChanged,
+        obscureText: obscureText,
         decoration: InputDecoration(
           errorText: errorText,
           focusedErrorBorder: OutlineInputBorder(
@@ -32,6 +41,7 @@ class CustomTextField extends StatelessWidget {
               borderRadius: BorderRadius.circular(5),
               borderSide: const BorderSide(color: ColorConstants.transparent)),
           hintText: hintText,
+          suffixIcon: suffixIcon,
           fillColor: ColorConstants.textfieldColor,
           filled: true,
         ),

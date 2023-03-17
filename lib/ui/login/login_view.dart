@@ -37,6 +37,15 @@ class LoginView extends StatelessWidget {
                     textEditingController: viewModel.userNameController,
                     hintText: 'Username',
                     errorText: viewModel.userNameError,
+                    obscureText: viewModel.obscureText,
+                    suffixIcon: IconButton(
+                        onPressed: () {
+                          viewModel.obscureText = !viewModel.obscureText;
+                          viewModel.notifyListeners();
+                        },
+                        icon: viewModel.obscureText
+                            ? const Icon(Icons.visibility_off)
+                            : const Icon(Icons.visibility)),
                   ),
                   SizedBox(height: context.height * 0.02),
                   CustomButton(

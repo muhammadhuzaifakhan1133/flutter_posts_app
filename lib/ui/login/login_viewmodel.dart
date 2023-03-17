@@ -13,6 +13,7 @@ class LoginViewModel extends BaseViewModel {
   TextEditingController userNameController = TextEditingController();
   String? emailError;
   String? userNameError;
+  bool obscureText = true;
 
   login() async {
     if (!validateFields()) {
